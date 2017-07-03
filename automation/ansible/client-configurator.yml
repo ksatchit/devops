@@ -1,0 +1,56 @@
+---
+  - hosts: sample 
+    tasks:
+    - name: install latest version of  python-devel
+      yum:  
+         name:  python-devel
+         state: latest  
+       
+    - name: install latest version of  openssl-devel
+      yum:  
+         name:  python-devel
+         state: latest 
+ 
+    - name: install latest version of  iscsi-initiator-utils
+      yum:
+         name:  iscsi-initiator-utils
+         state: latest
+
+    - name: install latest version of nfs-utils
+      yum:
+         name:  nfs-utils 
+         state: latest
+
+    - name: install latest version of java-1.8.0-openjdk
+      yum:
+         name:  java-1.8.0-openjdk
+         state: latest
+
+    - name: install latest version of csh 
+      yum:
+         name:  csh 
+         state: latest
+     
+    - name: download get-pip.py script
+      get_url:
+        url: https://bootstrap.pypa.io/get-pip.py
+        dest: /root
+        force: yes
+
+    - name: execute install script
+      command: python /root/get-pip.py
+
+    - name: install latest version of paramiko
+      pip:
+         name: paramiko
+
+    - name: install latest version of numpy
+      pip: 
+         name: numpy
+
+    - name: install latest version of pycrypto
+      pip: 
+         name: pycrypto
+
+
+       
